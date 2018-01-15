@@ -9,13 +9,14 @@
 
 |時間|内容|
 |----|----|
-|19:00|	受付開始|
-|19:15|	挨拶・説明等|
-|19:20|	サーバーレスの説明|
-|19:30|	ハンズオン前半戦|
-|20:25|	休憩|
-|20:35|	ハンズオン後半戦|
-|21:30|	質疑応答&名刺交換|
+|19:00|	受付開始 |
+|19:15|	挨拶・説明等 |
+|19:20|	サーバーレスの説明 |
+|19:30|	ハンズオン前半戦 |
+|20:20|	休憩 |
+|20:30|	ハンズオン後半戦 |
+|21:00|	質疑応答&名刺交換&ドリンクタイム |
+|22:00| 撤収 |
 
 ## 準備 その1（ハンズオン開始前に済ませる）
 
@@ -187,7 +188,7 @@
 
 1. [FaceDetaction](https://github.com/sls-handson/face-detection) - 以下のJsonをInputにS3に保存された指定の画像をAmazon Rekognitionの顔検出機能により、サングラスを掛けていない顔が1つであること、既にAmazon Rekognitionのコレクションに追加されてない顔あることをチェックします。エラーが無い場合、Inputの情報に顔検出情報を追加した情報を出力します。
     ```JSON
-    # ユーザー情報.no = "a001" の場合
+    # ${ユーザー情報.no} = "a001" の場合
     {
       "userId": "a001",
       "s3Bucket": "stylez-sls-handson-rekognition",
@@ -1296,3 +1297,5 @@ FaceDetaction関数でValidationエラーとなるシナリオを検証します
 ## 参考
 
 * [aws-serverless-workshops ImageProcessing](https://github.com/awslabs/aws-serverless-workshops/tree/master/ImageProcessing)
+* [Serverless AWS Lambda Guide](https://serverless.com/framework/docs/providers/aws/guide/)
+* [serverless-step-functions](https://github.com/horike37/serverless-step-functions)
