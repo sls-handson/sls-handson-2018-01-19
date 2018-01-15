@@ -174,15 +174,15 @@
 
 * awslabsの[aws-serverless-workshops](https://github.com/awslabs/aws-serverless-workshops)を参考に、サーバーレス画像処理アプリケーションの構築ハンズオンを行います。
 
-* アーキテクチャは、Amazon Rekognitionの顔検出機能を活用し、Amazon S3に格納されているアップロードされた画像のリサイズ、Amazon DynamoDBを使用して画像のメタデータをユーザープロファイルに保存する、いくつかのAWS Lambda関数で構成されています。これらのLambda関数のオーケストレーションは、AWS Step Functionステートマシンによって管理されます。
+* アーキテクチャは、Amazon Rekognitionの顔検出機能を活用し、Amazon S3に格納されているアップロードされた画像のリサイズ、Amazon DynamoDBを使用して画像のメタデータをユーザープロファイルに保存する、いくつかのAWS Lambda関数で構成されています。これらのLambda関数のオーケストレーションは、AWS Step Functionsステートマシンによって管理されます。
 
-* また、各AWS Lambda関数はSpringCloudフレームワークにより実装し。各AWS Lambda関数及び、AWS Step FunctionステートマシンはServerlessFrameworkにてDeployします。
+* また、各AWS Lambda関数はSpringCloudフレームワークにより実装し。各AWS Lambda関数及び、AWS Step FunctionsステートマシンはServerlessFrameworkにてDeployします。
 
     ![architecture](./images/architecture.png)
 
 ### 処理フロー
 
-* 以下は、AWS Step Functionで可視化したフロー図です。
+* 以下は、AWS Step Functionsで可視化したフロー図です。
 
     ![statemachine](./images/statemachine01.png)
 
@@ -795,8 +795,8 @@
 </p></details>
 
 ### 6. AWS Step FunctionステートマシンをDeployする
-* [Github](https://github.com/sls-handson/step-function)にあるテンプレートからServerlessFrameworkでAWS Step Functionステートマシンを Deployします。
-* AWS Step Functionステートマシンのワークフローイメージ。
+* [Github](https://github.com/sls-handson/step-function)にあるテンプレートからServerlessFrameworkでAWS Step Functionsステートマシンを Deployします。
+* AWS Step Functionsステートマシンのワークフローイメージ。
 
     ![statemachine](./images/statemachine01.png)
 
@@ -825,7 +825,7 @@
 	```
 
 
-1. ServerlessFrameworkのAWS Step Functionプラグインをインストールします。
+1. ServerlessFrameworkのAWS Step Functions用プラグインをインストールします。
 
 	```
 	$ npm install --save-dev serverless-step-functions
@@ -917,7 +917,7 @@
 	endpoints:
 	```
 
-1. ServerlessFrameworkでAWS Step Functionステートマシン を invokeします。 `${ユーザー情報.no}` 部分を来場時に配布されたユーザー情報の `no` に置き換えます。
+1. ServerlessFrameworkでAWS Step Functionsステートマシン を invokeします。 `${ユーザー情報.no}` 部分を来場時に配布されたユーザー情報の `no` に置き換えます。
 
 	```JSON
 	$ sls invoke stepf --name slsHandsonMachine --no ${ユーザー情報.no} \
@@ -995,9 +995,9 @@
 
 ## Extra credit
 
-**FaceDetaction関数** では、幾つかのValidationを行い、エラーの場合はExceptionを返しています。AWS Step Functionのエラーハンドリング機能を利用して、当該Taskでエラーが発生した場合にエラーを処理するタスクに渡すワークフローを検討します。
+**FaceDetaction関数** では、幾つかのValidationを行い、エラーの場合はExceptionを返しています。AWS Step Functionsのエラーハンドリング機能を利用して、当該Taskでエラーが発生した場合にエラーを処理するタスクに渡すワークフローを検討します。
 
-* 以下は、AWS Step Functionで可視化したフロー図です。
+* 以下は、AWS Step Functionsで可視化したフロー図です。
 
     ![statemachine](./images/statemachine02.png)
 
@@ -1054,7 +1054,7 @@ PhotoDoesNotMeetRequiremen関数を今までの実習の内容を基に実装、
 	$ cd step-function
 	```
 
-1. 現状AWS Step Functionステートマシンを削除します。
+1. 現状AWS Step Functionsステートマシンを削除します。
 
 	```
 	$ sls remove --no ${ユーザー情報.no}
@@ -1090,7 +1090,7 @@ FaceDetaction関数でValidationエラーとなるシナリオを検証します
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
 
-1. ServerlessFrameworkでAWS Step Functionステートマシン を invokeします。 `${ユーザー情報.no}` 部分を来場時に配布されたユーザー情報の `no` に置き換えます。
+1. ServerlessFrameworkでAWS Step Functionsステートマシン を invokeします。 `${ユーザー情報.no}` 部分を来場時に配布されたユーザー情報の `no` に置き換えます。
 
 	サングラス付き写真（2_sunglass_face.jpg）：
 
@@ -1122,7 +1122,7 @@ FaceDetaction関数でValidationエラーとなるシナリオを検証します
 
 ## Clean-up 
 
-1. AWS Step Functionステートマシンを削除する
+1. AWS Step Functionsステートマシンを削除する
 	<details>
 	<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
 	
