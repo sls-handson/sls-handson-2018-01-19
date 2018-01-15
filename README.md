@@ -796,6 +796,9 @@
 
 ### 6. AWS Step FunctionステートマシンをDeployする
 * [Github](https://github.com/sls-handson/step-function)にあるテンプレートからServerlessFrameworkでAWS Step Functionステートマシンを Deployします。
+* AWS Step Functionステートマシンのワークフローイメージ。
+
+    ![statemachine](./images/statemachine01.png)
 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
